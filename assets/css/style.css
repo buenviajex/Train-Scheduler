@@ -29,6 +29,9 @@ table{
     color: white;
 }
 
+th {
+    font-weight: bold;
+}
 form{
 	padding: 10px;
 }

@@ -22,35 +22,19 @@ var config = {
 		console.log(childSnapshot.val());
 
 		var trainName = childSnapshot.val().trainName;
-		console.log(trainName);
 		var firstTime = childSnapshot.val().firstTime;
 		var destination = childSnapshot.val().destination;
-		console.log(destination);
 		var frequency = childSnapshot.val().frequency;
-		console.log(frequency);
-
+		
 		var firstTimeConverted = moment(firstTime, "hh:mm").subtract(1, "years");
-    	console.log(firstTimeConverted);
-
 		var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
-    	console.log("DIFFERENCE IN TIME: " + diffTime);
-
-
 		var trainRemainder = diffTime % frequency;
-    	console.log(trainRemainder);
-
 		var minutesTillTrain = frequency - trainRemainder;
-    	console.log("MINUTES TILL TRAIN: " + minutesTillTrain);
-
 		var arrival = moment().add(minutesTillTrain, "minutes");
-		console.log("Next Arrival: " + moment(arrival).format("hh:mm"));
 		arrivalFormat = moment(arrival).format("hh:mm");
-
 		$("table").append("<tr><td>" + trainName + "</td><td>" + destination + "</td><td>" +
   		frequency + "</td><td>" + arrivalFormat + "</td><td>" + minutesTillTrain + "</td></tr>");
-
-
-});
+	});
 
 
  
